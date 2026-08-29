@@ -6,6 +6,8 @@ import os
 
 load_dotenv(override=True)
 
+print("Starting app...", flush=True)
+
 name = "Sapna Gupta"
 
 openai = OpenAI(
@@ -19,6 +21,8 @@ for page in reader.pages:
     text = page.extract_text()
     if text:
         linkedin += text
+
+print("PDF loaded, starting Gradio...", flush=True)
 
 system_prompt = f"You are acting as {name}. You are answering questions on {name}'s website, \
 particularly questions related to {name}'s career, background, skills and experience. \
@@ -38,5 +42,5 @@ def chat(message, history):
 
 
 if __name__ == "__main__":
-    
+    print("About to launch on port:", os.environ.get("PORT", 7860), flush=True)
     gr.ChatInterface(chat).launch(server_name="0.0.0.0", server_port=int(os.environ.get("PORT", 7860)))
