@@ -17,9 +17,8 @@ if not google_api_key:
 
 client = OpenAI(
     api_key=google_api_key,
-    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
+    base_url="https://generativelanguage.googleapis.com/v1beta/openai"
 )
-
 # Pushover Notification Setup
 pushover_user = os.getenv("PUSHOVER_USER")
 pushover_token = os.getenv("PUSHOVER_TOKEN")
