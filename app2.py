@@ -190,12 +190,17 @@ def chat(message: str, history: list):
             done = True
             return choice.message.content
 
+
 # 5. Launch App
 if __name__ == "__main__":
+    import os
+    
+    port = int(os.environ.get("PORT", 7860))
+    
     demo = gr.ChatInterface(
         fn=chat,
         title=f"Chat with {name}'s AI Agent",
         description=f"Ask questions about {name}'s career, projects, and expertise.",
         
     )
-    demo.launch(share=True)
+    demo.launch(server_name="0.0.0.0", server_port=port)
