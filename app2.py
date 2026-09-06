@@ -130,7 +130,7 @@ if os.path.exists(cv_path):
                 linkedin_cv_text += extracted + "\n"
         print(f"Successfully loaded CV from {cv_path}")
     except Exception as e:
-        print(f"Error loading CV: {e}")
+        print(f"Error loading CV: {e}")  
 else:
     print(f"Warning: {cv_path} not found. Running without CV context.")
 
